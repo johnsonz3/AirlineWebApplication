@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+    background: rgb(233, 233, 233);
+    font-family: sans-serif;
+}
+/* Navigation bar */
+#topbar{
+    background: linear-gradient(90deg, #36d1dc, #5b86e5);
+    padding: 14px 16px;
+    height: 3rem;
+}
+#topbar a.active{
+    text-decoration: none;
+    color:white;
+    font-size: 2rem;
+    text-align: center;
+    margin-left: 2rem;
+    
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.content {
+    padding: 16px;
+}
+
+.sticky + .content {
+    padding-top: 60px;
+}
+
+/* Input */
+input {
+    height: 40px;
+    width: 11%;
+    box-sizing: border-box;
+}
