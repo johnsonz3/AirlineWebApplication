@@ -9,13 +9,15 @@ body{
     padding: 14px 16px;
     height: 3rem;
 }
-#topbar a.active{
+#topbar a{
     text-decoration: none;
     color:white;
     font-size: 2rem;
     text-align: center;
     margin-left: 2rem;
-    
+}
+#topbar a:hover {
+    color: blue;
 }
 .sticky {
     position: fixed;
