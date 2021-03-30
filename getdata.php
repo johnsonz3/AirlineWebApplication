@@ -1,12 +1,9 @@
 <?php
-        $result = $connection -> query("SELECT Flight.FlightNum, Flight.APortDepart, Flight.APortArrival  
-        FROM Flight, DaysOffered 
-        WHERE FlightNum=FlightNumber ");
-        echo "<ol>";
+        $result = $connection -> query("SELECT AirlineCode FROM Airline");
+        echo "<select>";
+        echo "<option></option>";
         while ($row = $result->fetch()) {
-            echo "<li>";
-            echo $row["APortDepart"]." - ";
-            echo $row["FlightNum"]."</li>";
+            echo "<option>".$row["AirlineCode"]."</option>";
         }
-    echo "</ol>";
+        echo "</select>";
     ?>
