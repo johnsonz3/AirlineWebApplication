@@ -22,19 +22,39 @@
     <!--Body-->
     <div class="content">
 <?php
-$airlineCode = $_POST["airlineChoose"];
-$flightNum = $_POST["flightNum"];
-$chooseDepart = $_POST["chooseDepart"];
-$chooseArrival = $_POST["chooseArrival"];
-$scheduledDepart = $_POST["scheduledDepart"];
-$scheduledArrival = $_POST["scheduledArrival"];
-// Fix weekdays
-echo $chooseArrival;
+    $airlineCode = $_POST["airlineChoose"];
+    $flightNum = $_POST["flightNum"];
+    $airplaneID = $_POST["airplaneID"];
+    $chooseDepart = $_POST["chooseDepart"];
+    $chooseArrival = $_POST["chooseArrival"];
+    $scheduledDepart = $_POST["scheduledDepart"];
+    $scheduledArrival = $_POST["scheduledArrival"];
+    $weekdays = $_POST['check_list']; //Weekday array
+    
+    $query= 'INSERT INTO Flight 
+    (FlightNum, 
+    ScheduledArrival,
+    ScheduledDeparture,
+    ALineCode,
+    APlaneID,
+    APortDepart,
+    APortArrival) values(
+        "'.$flightNum .'",
+        "'.$scheduledArrival.'",
+        "'.$scheduledDepart.'",
+        "'.$airlineCode.'",
+        "'.$airplaneID.'",
+        "'.$chooseDepart.'",
+        "'.$chooseArrival.'"
+    )';
+
+    //Insert Data into DaysOffered
+   
+    $result = $connection->exec($query);
+    echo "Your flight was added!";
+    $connection=NULL;
 ?>
 </ol>
-<?php
-$connection= NULL;
-?>
     </div>
 </body>
 </html>

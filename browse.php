@@ -32,15 +32,26 @@ include 'connectdb.php';
         AND Flight.ALineCode="'.$whichAirline.'"
         AND DaysOffered.OfferedDays="'.$whichDate.'" ';
         
+        $query = 'SELECT FlightNumber, 
+        DaysOffered.ALineCode, 
+        depart.city as departure, 
+        arrive.city as arrival 
+        FROM Flight 
+        LEFT OUTER JOIN Airport as depart on Flight.APortDepart = depart.AirportCode 
+        LEFT OUTER JOIN Airport as arrive on Flight.APortArrival = arrive.AirportCode 
+        INNER JOIN DaysOffered on Flight.ALineCode = DaysOffered.ALineCode 
+        AND FlightNum=FlightNumber 
+        AND Flight.ALineCode="'.$whichAirline.'"
+        AND DaysOffered.OfferedDays="'.$whichDate.'" ';
+        
         $result=$connection->query($query);
         $row=$result->fetch();
         if($row){
-            echo "<tr><h3>Airline Code: $whichAirline</h3></tr>";
             echo "<tr><h3>Date: $whichDate</h3></tr>";
             echo "<tr><th>Flight Code</th><th>Airport Departure Location</th><th>Airport Arrival Location</th></tr>";
-            echo "<tr><td>".$row["FlightNum"]."</td><td>".$row["APortDepart"]."</td><td>".$row["APortArrival"]."</td></tr>";
+            echo "<tr><td>".$row["ALineCode"].$row["FlightNumber"]."</td><td>".$row["departure"]."</td><td>".$row["arrival"]."</td></tr>";
             while ($row=$result->fetch()) {
-                echo "<tr><td>".$row["FlightNum"]."</td><td>".$row["APortDepart"]."</td><td>".$row["APortArrival"]."</td></tr>";
+                echo "<tr><td>".$row["ALineCode"].$row["FlightNumber"]."</td><td>".$row["departure"]."</td><td>".$row["arrival"]."</td></tr>";
             }
         }else {
             echo "<script>

@@ -47,8 +47,8 @@
         <div class="browse">
             <h2>Browse Flights</h2>
             <form action="browse.php" method="post">
-                <input type="text" placeholder="Enter Airline Code Here" name="airlinecode" class="big">
-                <input type="text" placeholder="Day of the week Here" name="airlinedate" id="airlinedate" class="big">
+                <input type="text" maxlength=3 placeholder="Enter Airline Code Here" name="airlinecode" class="big">
+                <input type="text" maxlength=9 placeholder="Day of the week Here" name="airlinedate" id="airlinedate" class="big">
                 <input type="submit" value="Get Flights" class="big">
             </form>
         </div>
@@ -67,8 +67,14 @@
                 }
                 echo "</select>   ";
             ?>
-            <label for="flightNum">Flight Number</label>
-            <input type="text" id="flightNum" maxlength="3" placeholder="Enter a 3-digit number"name="flightNum" class="big"><br><br>
+            <!-- Flight Number Input-->
+            <label for="flightNum">Flight Number:</label>
+            <input type="text" id="flightNum" maxlength="3" placeholder="Enter a 3-digit number"name="flightNum" class="big">
+            
+            <!-- Airplane ID Input-->
+            <label for="airplaneID">Airplane ID:</label>
+            <input type="text" id="airplaneID" maxlength="5" placeholder="Enter Airplane ID"name="airplaneID" class="big">
+            <br><br>
             <!-- Departure Airport Code Input -->
             <?php
                 $result = $connection -> query("SELECT AirportCode FROM Airport");
@@ -91,27 +97,27 @@
                 }
                 echo "</select><br><br>";
             ?>
-            <label for="scheduledDepart">Departure Time</label>
+            <label for="scheduledDepart">Departure Time:</label>
             <input type="text" id="scheduledDepart" placeholder="hh:mm:ss" name="scheduledDepart" class="big">
-            <label for="scheduledArrival">Arrival Time</label>
+            <label for="scheduledArrival">Arrival Time:</label>
             <input type="text" id="scheduledArrival" placeholder="hh:mm:ss" name="scheduledArrival" class="big">
             
             <!-- Select Weekdays-->
             <h4>Select Days of the Week Offered:</h4>
             <div class="weekDays-selector">
-                <input type="checkbox" id="weekday-mon" name="weekday" class="weekday" value="Monday">
+                <input type="checkbox" id="weekday-mon" name="check_list[]" class="weekday" value="Monday">
                 <label for="weekday-mon">M</label>
-                <input type="checkbox" id="weekday-tue" name="weekday" class="weekday" value="Tuesday">
+                <input type="checkbox" id="weekday-tue" name="check_list[]" class="weekday" value="Tuesday">
                 <label for="weekday-tue">T</label>
-                <input type="checkbox" id="weekday-wed" name="weekday" class="weekday" value="Wednesday">
+                <input type="checkbox" id="weekday-wed" name="check_list[]" class="weekday" value="Wednesday">
                 <label for="weekday-wed">W</label>
-                <input type="checkbox" id="weekday-thu" name="weekday" class="weekday" value="Thursday">
+                <input type="checkbox" id="weekday-thu" name="check_list[]" class="weekday" value="Thursday">
                 <label for="weekday-thu">T</label>
-                <input type="checkbox" id="weekday-fri" name="weekday" class="weekday" value="Friday">
+                <input type="checkbox" id="weekday-fri" name="check_list[]" class="weekday" value="Friday">
                 <label for="weekday-fri">F</label>
-                <input type="checkbox" id="weekday-sat" name="weekday" class="weekday" value="Saturday">
+                <input type="checkbox" id="weekday-sat" name="check_list[]" class="weekday" value="Saturday">
                 <label for="weekday-sat">S</label>
-                <input type="checkbox" id="weekday-sun" name="weekday" class="weekday" value="Sunday">
+                <input type="checkbox" id="weekday-sun" name="check_list[]" class="weekday" value="Sunday">
                 <label for="weekday-sun">S</label>
             </div>
             <br>
