@@ -40,7 +40,7 @@ include 'connectdb.php';
                 Inner JOIN DaysOffered ON Flight.ALineCode=DaysOffered.ALineCode AND OfferedDays = "'.$whichDay.'"');
                 $row=$result->fetch();
                 $numSeats = (int)$row["AvgSeats"];
-                echo "<br><br><p>The average number of seats on all flights on ".$whichDay." is: ".$numSeats." seats</p>";
+                echo "<br><br><p>The average number of seats on ".$whichDay." is: ".$numSeats." seats</p>";
             
             }
             

@@ -4,6 +4,7 @@ body{
     font-family: sans-serif;
     background-image: url("img/sky.jpg");
     background-size: cover;
+    background-attachment: fixed;
 }
 #main{
     margin: 0;
@@ -26,21 +27,12 @@ body{
     margin-left: 2rem;
 }
 
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
 .content {
     margin-top: 4rem;
     display: block;
     margin-right: auto;
     margin-left: auto;
     width: 50%;
-}
-
-.sticky + .content {
-    padding-top: 60px;
 }
 
 /* Input */
