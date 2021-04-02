@@ -11,9 +11,9 @@
     <!--Navigation Bar-->
     <div id="topbar">
         <a class="active" href="http://localhost/airlineWebApplication/airline.php">Home</a>
-        <a class="#Add" href="#Add">Add</a>
+        <a class="#Add" href=http://localhost/airlineWebApplication/add.php>Add</a>
         <a class="#Update" href="http://localhost/airlineWebApplication/update.php">Update</a>
-        <a class="#Select" href="#Select">Select</a>
+        <a class="#Select" href="http://localhost/airlineWebApplication/select.php">Select</a>
     </div>
     <!-- PHP Connection -->
     <?php
@@ -23,14 +23,14 @@
     <div class="content">
     <!--Add Flights-->
     <div class="add">
-        <h2>Add Flights</h2>
+        <h2>Create a Flight</h2><br>
         <form action="#" method="post">
         <!-- Airline Code Input -->
         <?php
             $result = $connection -> query("SELECT AirlineCode FROM Airline");
-            echo "<label for='airlineChoose'>Choose an Airline: </label>";
+           
             echo "<select id='airlineChoose' name='airlineChoose' class='big'>";
-            echo "<option></option>";
+            echo "<option disabled selected value>Choose an Airline: </option>";
             while ($row = $result->fetch()) {
                 echo "<option>".$row["AirlineCode"]."</option>";
             }
@@ -90,7 +90,7 @@
             <label for="weekday-sat">Sat</label>
         </div>
         <br>
-        <input type="submit" name="submit" value="Add Flights" class="big">
+        <input type="submit" name="submit" value="Add Flight to Database" class="big">
         </form>
     </div>
 <?php

@@ -1,11 +1,20 @@
 body{
     margin: 0;
-    background: rgb(233, 233, 233);
+    /*background: rgb(233, 233, 233);*/
     font-family: sans-serif;
+    background-image: url("img/sky.jpg");
+    background-size: cover;
+}
+#main{
+    margin: 0;
+    /*background: rgb(233, 233, 233);*/
+    font-family: sans-serif;
+    background-image: url("img/sunset.jpg");
+    background-size: cover;
 }
 /* Navigation bar */
 #topbar{
-    background: linear-gradient(90deg, #36d1dc, #5b86e5);
+    background-color: #00203e;
     padding: 14px 16px;
     height: 3rem;
 }
@@ -16,16 +25,18 @@ body{
     text-align: center;
     margin-left: 2rem;
 }
-#topbar a:hover {
-    color: blue;
-}
+
 .sticky {
     position: fixed;
     top: 0;
     width: 100%;
 }
 .content {
-    padding: 16px;
+    margin-top: 4rem;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
 }
 
 .sticky + .content {
@@ -55,6 +66,73 @@ body{
   }
   
   .weekDays-selector input[type=checkbox]:checked + label {
-    background: #36d1dc;
+    background: rgb(0, 170, 166);
     color: #ffffff;
   }
+
+/* Table */
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color:  #00203e;
+    color: white;
+  }
+td, th {
+    border: 3px solid black;
+    padding: 8px;
+  }
+tr {
+    text-align: left;
+}
+/* Home */
+.home {
+    background-color: rgb(207, 207, 207,0.8);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+}
+/* Add */
+.add {
+    background-color: rgb(207, 207, 207,0.8);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+}
+/* Update */
+.update {
+    background-color: rgb(207, 207, 207,0.8);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+}
+/* Select */
+.select {
+    background-color: rgb(207, 207, 207,0.8);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+}
+/* Browse */
+.browse {
+    background-color: rgb(207, 207, 207,0.8);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+}
+input[type=submit] {
+    background-color: rgb(0, 170, 166);
+    color: white;
+    width: 10rem;
+    height: 2rem;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}

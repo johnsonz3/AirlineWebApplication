@@ -12,8 +12,8 @@
     <div id="topbar">
         <a class="active" href="http://localhost/airlineWebApplication/airline.php">Home</a>
         <a class="#Add" href=http://localhost/airlineWebApplication/add.php>Add</a>
-        <a class="#Update" href="#Update">Update</a>
-        <a class="#Select" href="#Select">Select</a>
+        <a class="#Update" href="http://localhost/airlineWebApplication/update.php">Update</a>
+        <a class="#Select" href="http://localhost/airlineWebApplication/select.php">Select</a>
     </div>
     <!-- PHP Connection -->
     <?php
@@ -22,6 +22,7 @@
     <!--Body-->
     <div class="content">
         <div class="update">
+            <h2>Update a Flight's Actual Departure Time:</h2>
             <form action="#" method="post">
                 <!-- Airline Code Input -->
                 <?php
