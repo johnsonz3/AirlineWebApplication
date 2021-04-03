@@ -5,7 +5,6 @@
     <title>Airline</title>
     <link rel="shortcut icon" href="icons/plane.png">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
     <!--Navigation Bar-->

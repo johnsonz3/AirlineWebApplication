@@ -5,7 +5,6 @@
     <title>Airline</title>
     <link rel="shortcut icon" href="icons/plane.png">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript" src="index.js"></script>
 </head>
 <body id="main">
     <!--Navigation Bar-->
@@ -24,6 +23,7 @@
         <div class="home">
         <div class="punctual">
             <h3>Flights That Are On Time!</h3>
+            <p>A list of all flights whose scheduled arrival time matches their actual arrival time</p>
             <table>
             <?php
             $query = 'SELECT ALineCode,FlightNum, ActualArrival 

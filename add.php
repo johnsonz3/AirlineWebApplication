@@ -5,7 +5,6 @@
     <title>Airline</title>
     <link rel="shortcut icon" href="icons/plane.png">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
     <!--Navigation Bar-->
@@ -90,11 +89,11 @@
             <label for="weekday-sat">Sat</label>
         </div>
         <br>
-        <input type="submit" name="submit" value="Add Flight to Database" class="big">
+        <input type="submit" name="addSubmit" value="Add Flight to Database" class="big">
         </form>
     </div>
 <?php
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if(isset($_POST['addSubmit'])){
         $airlineCode = $_POST["airlineChoose"];
         $flightNum = $_POST["flightNum"];
         $airplaneID = $_POST["airplaneID"];
@@ -105,19 +104,20 @@
         $weekdays = $_POST['check_list']; //Weekday array
         
         // Airplane ID Check
-        $result = $connection ->query("SELECT COUNT(*) as idcount FROM Airplane WHERE AirplaneID='.$airplaneID' AND
-        ALineCode='.$airlineCode.'");
+        $result = $connection ->query("SELECT COUNT(*) as NumCount FROM Airplane WHERE AirplaneID='".$airplaneID."' AND
+        ALineCode='".$airlineCode."'");
         $row = $result->fetch();
         // Insert data into Airplane if the airplane model does not exist
-        if($row["idcount"]==0){
-            $result2 = $connection -> exec('INSERT INTO Airplane (
+       
+        if($row["NumCount"]==0){
+            $result3 = $connection -> exec('INSERT INTO Airplane (
                     AirplaneID,
                     ALineCode) values(
                     "'.$airplaneID.'",
                     "'.$airlineCode.'"
                 )');
         } 
-        
+       
         $query= 'INSERT INTO Flight (
         FlightNum, 
         ScheduledArrival,
@@ -147,7 +147,6 @@
                     "'.$weekdays[$i].'")';
             $result2 = $connection->exec($query2);
         }
-        
         echo "<script>
                 alert('Your Flight was Added!');
         </script>";
