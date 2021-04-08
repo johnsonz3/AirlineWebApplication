@@ -112,9 +112,11 @@
         if($row["NumCount"]==0){
             $result3 = $connection -> exec('INSERT INTO Airplane (
                     AirplaneID,
-                    ALineCode) values(
+                    ALineCode,
+                    ATypeName) values(
                     "'.$airplaneID.'",
-                    "'.$airlineCode.'"
+                    "'.$airlineCode.'",
+                    "Boeing 737-800"
                 )');
         } 
        
@@ -135,7 +137,14 @@
             "'.$chooseArrival.'"
         )';
         // Insert Data Into Flights
-        $result = $connection->exec($query);
+        try{
+            $result = $connection->exec($query);
+        }catch(exception $e){
+            echo "<script>
+                alert('Error, you flight could not be added!');
+            </script>";
+        }
+
         //Insert Data into DaysOffered
         for ($i=0; $i < sizeof($weekdays); $i++) {
             $query2= 'INSERT INTO DaysOffered(
@@ -145,7 +154,14 @@
                     "'.$flightNum.'",
                     "'.$airlineCode.'",
                     "'.$weekdays[$i].'")';
-            $result2 = $connection->exec($query2);
+            try{
+                $result2 = $connection->exec($query2);
+            }catch(exception $e){
+                echo "<script>
+                    alert('Error, you flight could not be added!');
+                </script>";
+            }
+            
         }
         echo "<script>
                 alert('Your Flight was Added!');
